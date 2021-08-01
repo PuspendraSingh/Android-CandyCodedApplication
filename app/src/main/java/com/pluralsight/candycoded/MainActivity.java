@@ -1,5 +1,6 @@
 package com.pluralsight.candycoded;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -71,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
             //adapter.changeCursor(cursor);
           }
         });
+  }
+  @Override
+  public boolean onOptionsItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
+    Intent infoIntent = new Intent(this,InfoActivity.class);
+    startActivity(infoIntent);
+    return super.onOptionsItemSelected(item);
   }
 
   @Override

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+
 import java.lang.reflect.Method;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -59,7 +61,15 @@ public class _4_ShareACandyWithAnIntent {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
+            try {
+                //infoActivity.createMapIntent(null);
+                Method myMethod =  DetailActivity.class
+                        .getMethod("createShareIntent", View.class);
+                Object[] param = {null};
+                myMethod.invoke(detailActivity, param);
+            } catch (Throwable e) {
+                //e.printStackTrace();
+            }
             onOptionsItemSelected_result = detailActivity.onOptionsItemSelected(null);
 
             PowerMockito.verifyNew(Intent.class, Mockito.atLeastOnce()).
@@ -128,7 +138,7 @@ public class _4_ShareACandyWithAnIntent {
         Method myMethod = null;
 
         try {
-            myMethod =  DetailActivity.class.getDeclaredMethod("createShareIntent");
+            myMethod =  DetailActivity.class.getDeclaredMethod("createShareIntent",View.class);
         } catch (NoSuchMethodException e) {
             //e.printStackTrace();
         }

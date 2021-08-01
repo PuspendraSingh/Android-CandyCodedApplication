@@ -60,7 +60,7 @@ public class _3_StartThePhoneActivity {
             }
 
             PowerMockito.mockStatic(Uri.class);
-            PowerMockito.when(Uri.class, "parse", "tel:0123456789").thenReturn(mockUri);
+            PowerMockito.when(Uri.class, "parse", "tel:+917607833550").thenReturn(mockUri);
             try {
                 //infoActivity.createPhoneIntent(null);
                 Method myMethod =  InfoActivity.class
@@ -75,7 +75,7 @@ public class _3_StartThePhoneActivity {
             created_intent = true;
 
             PowerMockito.verifyStatic(/*Uri.class*/);
-            Uri.parse("tel:0123456789");
+            Uri.parse("tel:+917607833550");
             called_uri_parse = true;
 
             verify(intent).setData(mockUri);

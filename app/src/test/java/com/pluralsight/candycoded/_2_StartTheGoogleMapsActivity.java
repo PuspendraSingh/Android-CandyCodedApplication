@@ -79,7 +79,7 @@ public class _2_StartTheGoogleMapsActivity {
             PowerMockito.doReturn(mockComponentName).when(intent, "resolveActivity", mockPackageManager);
 
             PowerMockito.mockStatic(Uri.class);
-            PowerMockito.when(Uri.class, "parse", "geo:0,0?q=618 E South St Orlando, FL 32801").thenReturn(mockUri);
+            PowerMockito.when(Uri.class, "parse", "geo:37.7749,-122.4194?q=restaurants").thenReturn(mockUri);
 
             try {
                 //infoActivity.createMapIntent(null);
@@ -91,7 +91,7 @@ public class _2_StartTheGoogleMapsActivity {
                 //e.printStackTrace();
             }
             PowerMockito.verifyStatic(Uri.class);
-            Uri.parse("geo:0,0?q=618 E South St Orlando, FL 32801"); // This has to come on the line after mockStatic
+            Uri.parse("geo:37.7749,-122.4194?q=restaurants"); // This has to come on the line after mockStatic
             called_uri_parse = true;
 
             PowerMockito.verifyNew(Intent.class, Mockito.atLeastOnce()).
